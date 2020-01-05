@@ -1,0 +1,59 @@
+{
+    "errors": {
+      "INSUFFICIENT_ARGS": "argumentos insuficientes, {{requiredArgs}} argumentos esperados, mas só {{argsCount}} encontrado.  \nuso: ``{{usage}}``",
+      "NO_END_QUOTE": "you have a missing end quote.",
+      "ON_COOLDOWN": "por favor, acalme-se! ({{time}} segundos restantes)",
+      "NO_PERMS": "você precisa das permissões {{perms}} para executar este comando!",
+      "NO_PERMS_BOT": "Eu preciso das permissões {{perms}} para executar este comando!",
+      "NO_PMS": "este comando não pode ser executado em PMs.",
+      "INVALID_RESOLVER_TYPE": "Tipo resolver inválido",
+      "member": {
+        "NOT_FOUND": "o membro não foi encontrado"
+      },
+      "channel": {
+        "NOT_FOUND": "não foi possível encontrar o canal"
+      },
+      "command": {
+        "NOT_FOUND": "o comando não pôde ser encontrado"
+      },
+      "group": {
+        "NOT_FOUND": "o grupo de comandos não pôde ser encontrado"
+      },
+      "role": {
+        "NOT_FOUND": "o cargo não pôde ser encontrado"
+      },
+      "string": {
+        "NOT_STRING": "{{arg}} deve ser uma string",
+        "MAX": "O comprimento do {{arg}} não pode ser superior a {{max}}",
+        "MIN": "O comprimento do {{arg}} não pode ser menor que {{min}}",
+        "ONE_OF": "{{arg}} deve ser um dos seguintes: [`{{choices}}`]"
+      },
+      "list": {
+        "MAX": "O comprimento do {{arg}} não pode conter mais do que {{max}} itens",
+        "MIN": "O comprimento do {{arg}} não pode conter menos que {{min}} itens",
+        "MAX_LENGTH": "{{arg}} não pode conter itens maiores que {{maxLength}}",
+        "MIN_LENGTH": "{{arg}} não pode conter itens menores que {{minLength}}",
+        "DUPES": "{{arg}} não pode conter valores duplicados"
+      },
+      "int": {
+        "NOT_INT": "{{arg}} não é um número inteiro",
+        "MAX": "O {{arg}} deve ser menor ou igual a {{max}}",
+        "MIN": "O {{arg}} deve ser maior ou igual a {{min}}"
+      }
+    },
+    "menus": {
+      "EXIT": "Digite {{cancel}} para sair do menu.",
+      "ERRORED": "o menu foi fechado:",
+      "EXITED": "você saiu do menu.",
+      "SELECTION": "Menu Seleção",
+      "ERROR": "Erro desconhecido",
+      "INPUT": "Digite o número de sua escolha no chat ou '{{cancel}}' para cancelar.",
+      "MORE_RESULTS": "E mais {{num}} ..."
+    },
+    "collector": {
+      "timeout": "Tempo limite após {{timeout}} s",
+      "max": "Excedeu {{max}} tentativas",
+      "maxMatches": "Excedeu {{maxMatches}} correspondências"
+    }
+  }
+  

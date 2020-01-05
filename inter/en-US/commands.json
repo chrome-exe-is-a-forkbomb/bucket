@@ -1,0 +1,56 @@
+{
+    "whois": {
+        "title": "User Information",
+        "gamming": "Game Playing",
+        "entry_server": "Joined Server At",
+        "nickname": "nickname",
+        "day_entry": "***```prolog\n{{days}} days```",
+        "create_account": "Created Discord Account",
+        "roles": "Roles [{{length}}]",
+        "permissions": "Permissions in server [{{length}}]",
+        "clientStatus":"user logged in:",
+        "status": {
+            "online": ":online: online",
+            "idle": ":idle: absent",
+            "dnd": ":dnd: do not bother",
+            "offline": ":offline: disconnected or invisible"
+        }
+    },
+    "server": {
+        "id": "🔰 Server Id",
+        "owner": "Server Owner",
+        "locale": "⚽ Locale",
+        "ownerID": "Owner ID",
+        "days": "**```{{days}} days```**",
+        "createDate": ":date: Create Server at: ",
+        "createTime": "⏰ Create Server ",
+        "channelVoice": "🎤 Voice Channels",
+        "channelVoiceSize": "```{{channels}} channel voices```",
+        "channelText": "📋 Text Channel",
+        "channelTextSize": "```{{channels}} channel texts```",
+        "botAddDate": "📥 Bot add at",
+        "botAddTime": "📥 Bot add",
+        "members": "🎎 Total Members",
+        "membersSize": "```{{members}} members on the server```",
+        "roles": "📌 Total roles:",
+        "rolesSize": "```{{roles}} roles```",
+        "peoples": "🏣 Total peoples:",
+        "peoplesSize": "```👥 {{peoples}} users```",
+        "bots": "👾 Total Bots:"
+      },
+      "avatar": {
+        "title_avatar": "{{user}}'s Avatar",
+        "download_avatar": "[Download here!]({{url}})"
+      },
+      "prefix": {
+          "set_prefix": "Easy and sweet like eat a candy! Your prefix is ` {{prefix}} ` now, chu! < 3",
+          "error_prefix": "Something goes whrong when I tried to change your prefix, darling... Try again later!",
+          "same_prefix": "that prefix was already set, darling. :("
+      },
+      "locale": {
+        "language_list": "<@{{user}}> These are the locales available at the moment! ```{{locales}}```",
+        "set_lang": "<@{{user}}> Okay, sir. I'll speak english for now! :flag_us:"
+      }
+}
+
+  

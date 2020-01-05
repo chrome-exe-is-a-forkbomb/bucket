@@ -1,0 +1,10 @@
+{
+  "production": {
+    "username": "root",
+    "password": "XXXX",
+    "database": "store",
+    "host": "XXX.XX.X.X",
+    "dialect": "mariadb",
+    "logging": false
+  }
+}
