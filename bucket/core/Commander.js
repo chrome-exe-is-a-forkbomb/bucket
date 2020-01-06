@@ -1,4 +1,3 @@
-const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
@@ -8,6 +7,11 @@ const { requireAll, isDir, Collection } = require('../util')
  * Commander class for command processing
  * @prop {Set} prefixes Set of added prefixes
  */
+
+function join(...paths) {
+   return paths.join('\\')
+}
+
 class Commander extends Collection {
   constructor (client) {
     super()
@@ -21,7 +25,7 @@ class Commander extends Collection {
   register (commands, options = {}) {
     switch (typeof commands) {
       case 'string': {
-        const filepath = path.join(process.cwd(), commands)
+        const filepath = join(process.cwd(), commands)
         if (!fs.existsSync(filepath)) {
           throw new Error(`Folder path ${filepath} does not exist`)
         }
