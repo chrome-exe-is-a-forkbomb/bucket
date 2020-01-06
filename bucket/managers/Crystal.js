@@ -11,16 +11,18 @@ try {
   EventEmitter = require('events')
 }
 
-const path = require('path')
-
 const { Collection, delay } = require('../util')
+
+function join(...paths) {
+    return paths.join('\\')
+}
 
 class Crystal extends EventEmitter {
   constructor (file, count = require('os').cpus().length) {
     super()
     this.clusters = new Collection()
     this._count = count
-    this._file = path.isAbsolute(file) ? file : path.join(process.cwd(), file)
+    this._file = path.isAbsolute(file) ? file : join(process.cwd(), file)
   }
 
   async createClusters () {
