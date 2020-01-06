@@ -6,7 +6,7 @@ class Collection extends Map {
   toArray () {
     return [...this.values()]
   }
- forEach (...args) {
+  forEach (...args) {
     return this.toArray().forEach(...args)
   }
 
