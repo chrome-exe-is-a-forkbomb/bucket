@@ -1,13 +1,17 @@
-const Bucket = require('./bucket/Bucket');  
-const Store  = require('./plugins/database/Store');
-const path = require('path');
+const Bucket = require('./bucket/Bucket');
+const Store = require('./plugins/database/Store');
+const { join } = require('path');
+
+require('dotenv').config()
+
+global.include = file => require(join(__dirname, file));
 
 const client = new Bucket({
-  token: 'TOKEN GOES HERE',
-  modules: './modules'
+	token: process.env.TOKEN,
+	modules: './modules'
 });
 
-const resolve = (dir) => path.join(dir);
+const resolve = dir => join(dir);
 
 client.register("commands", resolve('./commands'), { groupedCommands: true });
 client.createPlugin('store', Store);

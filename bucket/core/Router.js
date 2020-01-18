@@ -1,20 +1,20 @@
-const path = require('path')
+const { join } = require('path')
 const fs = require('fs')
 
 const { requireRecursive, isDir, Collection } = require('../util')
 
 class Router extends Collection {
-  constructor (client) {
+  constructor(client) {
     super()
     this._client = client
     this._cached = []
     this.events = {}
   }
 
-  register (modules) {
+  register(modules) {
     switch (typeof modules) {
       case 'string': {
-        const filepath = path.join(process.cwd(), modules)
+        const filepath = join(process.cwd(), modules)
         if (!fs.existsSync(filepath)) {
           throw new Error(`Folder path ${filepath} does not exist`)
         }
@@ -40,7 +40,7 @@ class Router extends Collection {
     }
   }
 
-  attach (Module) {
+  attach(Module) {
     if (Module instanceof Array) {
       for (const mod of Module) {
         this.attach(mod)
@@ -71,7 +71,7 @@ class Router extends Collection {
     return this
   }
 
-  record (event) {
+  record(event) {
     this._client.on(event, (...args) => {
       const events = this.events[event] || {}
       for (const name in events) {
@@ -87,7 +87,7 @@ class Router extends Collection {
     })
     return this
   }
-  run () {
+  run() {
     this.forEach(module => {
       if (typeof module.init === 'function') {
         module.init()
@@ -95,11 +95,11 @@ class Router extends Collection {
     })
     return this
   }
-  unregister () {
+  unregister() {
     return this.destroy()
   }
 
-  destroy () {
+  destroy() {
     for (const event in this.events) {
       this.events[event] = {}
     }
@@ -113,7 +113,7 @@ class Router extends Collection {
     return this
   }
 
-  reload () {
+  reload() {
     this.destroy()
     for (const filepath of this._cached) {
       this._client.unload(filepath)

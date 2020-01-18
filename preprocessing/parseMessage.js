@@ -8,7 +8,7 @@ module.exports = {
       const store = await db.fetchGuild(msg.channel.guild.id);
       
       const prefix = store.settings.prefix;
-      const language = store.settings.  locale;
+      const language = store.settings.locale;
   
       if (!msg.content.startsWith(prefix)) return;
   

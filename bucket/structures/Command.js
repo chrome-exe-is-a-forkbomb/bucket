@@ -1,11 +1,11 @@
-const path = require('path')
+const { join } = require('path')
 const moment = require("moment");
 const { Collection } = require('../util')
 const { Responder, Resolver } = require('../managers')
 const Base = require('./Base')
 
 class Command extends Base {
-  constructor (client, ...args) {
+  constructor(client, ...args) {
     super(client)
     if (this.constructor === Command) {
       throw new Error('Must extend abstract Command')
@@ -13,7 +13,7 @@ class Command extends Base {
 
     const resolver = this.resolver = new Resolver(client)
     if (!client.noDefaults) {
-      resolver.loadResolvers(path.join(__dirname, '..', 'resolvers'))
+      resolver.loadResolvers(join(__dirname, '..', 'resolvers'))
     }
     if (client._resolvers) {
       resolver.loadResolvers(client._resolvers)
@@ -26,7 +26,7 @@ class Command extends Base {
     this._options = args.reduce((p, c) => Object.assign(c, p), {})
   }
 
-  set _options (args = {}) {
+  set _options(args = {}) {
     const {
       name,
       description,
@@ -40,8 +40,8 @@ class Command extends Base {
     } = args
 
     this.triggers = typeof name === 'string'
-    ? [name].concat(aliases)
-    : (Array.isArray(aliases) && aliases.length > 0 ? aliases : [])
+      ? [name].concat(aliases)
+      : (Array.isArray(aliases) && aliases.length > 0 ? aliases : [])
 
     if (!this.triggers.length) {
       throw new Error(`${this.constructor.name} command is not named`)
@@ -72,7 +72,7 @@ class Command extends Base {
     }
     this.subcommand = subcommand
   }
-  execute (container) {
+  execute(container) {
     const responder = this.responder.create(container)
 
     let usage = this.usage
@@ -97,8 +97,8 @@ class Command extends Base {
       return this[process](container, responder)
     }, err => responder.error(`{{%errors.${err.message}}}`, err)).catch(this.logger.error)
   }
-  check ({ msg, isPrivate, admins, client }, responder, subcmd) {
-    if(moment().diff(msg.author.cooldown || 0) < 0) {
+  check({ msg, isPrivate, admins, client }, responder, subcmd) {
+    if (moment().diff(msg.author.cooldown || 0) < 0) {
       responder.error('{{%errors.ON_COOLDOWN}}', {
         delay: 0,
         deleteDelay: 5000,
@@ -143,9 +143,9 @@ class Command extends Base {
     return true
   }
 
-  async handle (container, responder) { return true }
+  async handle(container, responder) { return true }
 
-  get permissionNode () {
+  get permissionNode() {
     return `${this.group}.${this.triggers[0]}`
   }
 }

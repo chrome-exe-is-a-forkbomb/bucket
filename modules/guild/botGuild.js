@@ -1,4 +1,4 @@
-const { Module } = require('../../bucket');
+const { Module } = include("bucket");
 
 module.exports = class botGuild extends Module {
     constructor(...args) {

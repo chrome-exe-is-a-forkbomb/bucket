@@ -1,4 +1,4 @@
-const { Command } = require("sylphy");
+const { Command } = include('bucket/index')
 
 module.exports = class Prefix extends Command {
     constructor(...args) {

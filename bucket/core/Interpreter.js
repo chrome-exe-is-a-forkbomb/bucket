@@ -1,4 +1,4 @@
-const path = require('path')
+const { join, isAbsolute } = require('path')
 const fs = require('fs')
 
 const { requireAll, isDir, Collection } = require('../util')
@@ -9,7 +9,7 @@ class Interpreter extends Collection {
    * Creates a new Localisations instance
    * @arg {Client} Client instance
    */
-  constructor (client) {
+  constructor(client) {
     super()
     this._client = client
     this._cached = []
@@ -20,10 +20,10 @@ class Interpreter extends Collection {
    * @arg {String|Object|Array} strings An object, array or relative path to a folder or file to load strings from
    * @arg {String} [locale] The name of the locale. If none is supplied, `strings` will be treated as an object mapping locale names to string tables
    */
-  register (strings, loc) {
+  register(strings, loc) {
     switch (typeof strings) {
       case 'string': {
-        const filepath = path.isAbsolute(strings) ? strings : path.join(process.cwd(), strings)
+        const filepath = isAbsolute(strings) ? strings : join(process.cwd(), strings)
         if (!fs.existsSync(filepath)) {
           throw new Error(`Folder path ${filepath} does not exist`)
         }
@@ -58,7 +58,7 @@ class Interpreter extends Collection {
    * Reloads locale files (only those that have been added from by file path)
    * @returns {Client}
    */
-  reload () {
+  reload() {
     for (const filepath of this._cached) {
       this._client.unload(filepath)
       this._cached.shift()
@@ -73,7 +73,7 @@ class Interpreter extends Collection {
    * @arg {Object} obj The object to search from
    * @returns {?String}
    */
-  locate (fullkey, obj) {
+  locate(fullkey, obj) {
     let keys = fullkey.split('.')
     let val = obj[keys.shift()]
     if (!val) return null
@@ -88,11 +88,11 @@ class Interpreter extends Collection {
   /**
    * Gets strings under a group key from a locale
    * @arg {String} [key='common'] The string group to find
-   * @arg {String} [locale='en-US'] The locale to find
+   * @arg {String} [locale='pt-BR'] The locale to find
    * @returns {?String}
    */
-  getStrings (key = 'common', locale = 'en-US') {
-    if (!this.has(locale)) locale = 'en-US'
+  getStrings(key = 'common', locale = 'pt-BR') {
+    if (!this.has(locale)) locale = 'pt-BR'
     return this.locate(key, this.get(locale))
   }
 
@@ -102,7 +102,7 @@ class Interpreter extends Collection {
    * @arg {Object} options Object containing tags to interpolate into the string
    * @returns {String}
    */
-  shift (string, options) {
+  shift(string, options) {
     if (!string) return string
     return string.split(' ').map(str => (
       str.replace(/\{\{(.+)\}\}/gi, (matched, key) => (
@@ -115,11 +115,11 @@ class Interpreter extends Collection {
    * Parses a string, converting keys to the matching locale string, with interpolation
    * @arg {String} string The string to parse
    * @arg {String} [group='default'] The string group to use
-   * @arg {String} [locale='en-US'] The locale to use
+   * @arg {String} [locale='pt-BR'] The locale to use
    * @arg {Object} [options] Object containing tags to interpolate into the string
    * @returns {String}
    */
-  parse (string, group = 'default', locale = 'en-US', options = {}) {
+  parse(string, group = 'default', locale = 'pt-BR', options = {}) {
     if (!string) return string
     return String(string).split(' ').map(str => (
       str.replace(/\{\{(.+)\}\}/gi, (matched, key) => {

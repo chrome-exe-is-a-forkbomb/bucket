@@ -1,16 +1,12 @@
 const fs = require('fs')
 const util = require('util')
-
+const { join } = require('path')
 const { requireAll, isDir, Collection } = require('../util')
 
 /**
  * Commander class for command processing
  * @prop {Set} prefixes Set of added prefixes
  */
-
-function join(...paths) {
-   return paths.join('\\')
-}
 
 class Commander extends Collection {
   constructor (client) {

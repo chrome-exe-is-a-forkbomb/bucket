@@ -12,11 +12,13 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "eris": "^0.11.2",
     "eris-additions": "^1.3.0",
     "eris-reactions": "^0.1.2",
     "eventemitter3": "^4.0.0",
     "mariadb": "^2.1.4",
-    "sequelize": "^5.21.3",
-    "sylphy": "^0.4.5"
+    "pg": "6.1.0",
+    "sequelize": "^5.21.3"
   }
 }

@@ -1,10 +1,13 @@
 {
   "production": {
     "username": "root",
-    "password": "XXXX",
+    "password": "joaquim123",
     "database": "store",
-    "host": "XXX.XX.X.X",
+    "host": "localhost",
     "dialect": "mariadb",
-    "logging": false
+    "logging": false,
+    "dialectOptions": {
+      "timezone": "Etc/GMT0"
+    }
   }
 }

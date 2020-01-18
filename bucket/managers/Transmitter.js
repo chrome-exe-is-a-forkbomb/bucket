@@ -6,13 +6,13 @@ try {
 }
 
 const fs = require('fs')
-const path = require('path')
+const { join } = require('path')
 const crypto = require('crypto')
 
 const { Collection, requireAll, isDir } = require('../util')
 
 class Transmitter extends Collection {
-  constructor (client) {
+  constructor(client) {
     super()
 
     this.pid = process.pid
@@ -22,14 +22,14 @@ class Transmitter extends Collection {
     process.on('message', this.onMessage.bind(this))
   }
 
-  send (event, data) {
+  send(event, data) {
     process.send({
       op: event,
       d: data
     })
   }
 
-  onMessage (message) {
+  onMessage(message) {
     if (!message.op) {
       if (!this._client.suppressWarnings) {
         this._client.logger.warn('Received IPC message with no op')
@@ -45,7 +45,7 @@ class Transmitter extends Collection {
     }
   }
 
-  async awaitResponse (op, d) {
+  async awaitResponse(op, d) {
     const code = crypto.randomBytes(64).toString('hex')
     return new Promise((resolve, reject) => {
       const awaitListener = (msg) => {
@@ -68,10 +68,10 @@ class Transmitter extends Collection {
     })
   }
 
-  register (commands) {
+  register(commands) {
     switch (typeof commands) {
       case 'string': {
-        const filepath = path.join(process.cwd(), commands)
+        const filepath = join(process.cwd(), commands)
         if (!fs.existsSync(filepath)) {
           throw new Error(`Folder path ${filepath} does not exist`)
         }
@@ -106,7 +106,7 @@ class Transmitter extends Collection {
     }
   }
 
-  reload () {
+  reload() {
     for (const filepath of this._cached) {
       this._client.unload(filepath)
       this._cached.shift()
@@ -115,7 +115,7 @@ class Transmitter extends Collection {
     return this
   }
 
-  attach (command) {
+  attach(command) {
     if (!command.name && (typeof command.command !== 'function' || typeof command !== 'function')) {
       this._client.throwOrEmit('ipc:error', new TypeError(`Invalid command - ${command}`))
       return
@@ -124,7 +124,7 @@ class Transmitter extends Collection {
     return this
   }
 
-  unregister (name) {
+  unregister(name) {
     this.delete(name)
     return this
   }

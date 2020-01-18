@@ -5,7 +5,7 @@ try {
   Promise = global.Promise
 }
 
-const path = require('path')
+const {join,isAbsolute} = require('path')
 const fs = require('fs')
 
 const { requireRecursive, isDir } = require('../util')
@@ -25,7 +25,7 @@ class Bridge {
   register (middleware) {
     switch (typeof middleware) {
       case 'string': {
-        const filepath = path.isAbsolute(middleware) ? middleware : path.join(process.cwd(), middleware)
+        const filepath = isAbsolute(middleware) ? middleware : join(process.cwd(), middleware)
         if (!fs.existsSync(filepath)) {
           throw new Error(`Folder path ${filepath} does not exist`)
         }
