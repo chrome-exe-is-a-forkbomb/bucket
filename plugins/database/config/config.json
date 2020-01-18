@@ -1,7 +1,7 @@
 {
   "production": {
     "username": "root",
-    "password": "joaquim123",
+    "password": "******",
     "database": "store",
     "host": "localhost",
     "dialect": "mariadb",
