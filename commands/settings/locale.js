@@ -15,8 +15,8 @@ module.exports = class Avatar extends Command {
     const lang = await responder.selection(listIdiom, { mapFunc: c => c });
     if (!lang.length) return 0
 
-    store.update({ "settings.locale": lang[0] });
-    store.save()
+    store.cache().update({ "settings.locale": lang[0] });
+    store.cache().save()
       .then(() => {
         responder.settings.lang = lang[0];
         responder.send(responder.t("{{locale.set_lang}}", {

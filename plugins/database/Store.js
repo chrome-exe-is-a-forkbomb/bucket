@@ -10,13 +10,13 @@ module.exports = class Store {
      */
 
     get users() {
-        return this.db.User
+        return this.db.User.cache()
     };
     get guilds() {
-        return this.db.Guild
+        return this.db.Guild.cache()
     };
     get backups() {
-        return this.db.backups
+        return this.db.backups.cache()
     };
 
     /**
@@ -27,8 +27,7 @@ module.exports = class Store {
      */
 
     async fetchGuild(id) {
-        const fetch = await this.guilds.findByPk(id);
-        return fetch;
+        return await this.guilds.findByPk(id);
     };
     async fetchUser(id) {
         return await this.users.findByPk(ID);

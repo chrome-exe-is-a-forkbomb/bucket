@@ -12,8 +12,8 @@ module.exports = class Prefix extends Command {
     async handle({ args, store }, responder) {
         if (args.prefix === store.settings.prefix)
             return responder.error(responder.t("{{prefix.same_prefix}}"));
-        store.update({ "settings.prefix": args.prefix });
-        await store.save().then(() => {
+        store.cache().update({ "settings.prefix": args.prefix });
+        await store.cache().save().then(() => {
             return responder.send(responder.t("{{prefix.set_prefix}}", {
                 prefix: args.prefix
             }));

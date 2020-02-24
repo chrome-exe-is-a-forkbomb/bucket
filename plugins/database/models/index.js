@@ -1,15 +1,28 @@
 'use strict';
 
 const fs = require('fs');
-const {join, basename} = require('path');
+const { join, basename } = require('path');
 const Sequelize = require('sequelize');
 const config = require(__dirname + '/../config/config.json')["production"];
 const db = {};
 
+const Redis = require('ioredis')
+const redis = new Redis()
+const RedisAdaptor = require('sequelize-transparent-cache-ioredis')
+const redisAdaptor = new RedisAdaptor({
+  client: redis,
+  namespace: 'model',
+  lifetime: 60*60
+})
+const sequelizeCache = require('sequelize-transparent-cache')
+const { withCache } = sequelizeCache(redisAdaptor)
+
+const { DBNAME, USERNAMES, PASSWORD } = process.env
+
 const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
+  DBNAME,
+  USERNAMES,
+  PASSWORD,
   config);
 
 fs
@@ -18,7 +31,7 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename(__filename)) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    const model = sequelize['import'](join(__dirname, file));
+    const model = withCache(sequelize['import'](join(__dirname, file)));
     db[model.name] = model;
   });
 

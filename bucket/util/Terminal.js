@@ -7,7 +7,7 @@ class Terminal {
    * @arg {Boolean} [options.suppressWarnings=false] Option to suppress warnings
    * @arg {Boolean} [options.timestamps=true] Option to show timestamps
    */
-  constructor ({ loggerPrefix, suppressWarnings, timestamps = true } = {}) {
+  constructor({ loggerPrefix, suppressWarnings, timestamps = true } = {}) {
     this._timestamps = timestamps
     this._name = loggerPrefix ? `- [${loggerPrefix}]` : ''
 
@@ -17,27 +17,27 @@ class Terminal {
     }
   }
 
-  log (...args) {
+  log(...args) {
     console.log(this.timestamp + this._name, ...args)
   }
-  info (...args) {
+  info(...args) {
     console.log(this.timestamp, this._name + this.green('[BUCKET]') + ' -', ...args)
   }
 
-  warn (...args) {
+  warn(...args) {
     console.log(this.timestamp, this._name + this.yellow('[BUCKET - WARNING]') + ' -', ...args)
   }
 
-  error (...args) {
+  error(...args) {
     console.log(this.timestamp, this._name + this.red('[BUCKET - ERROR]') + ' -',
-    ...args.map(e => e instanceof Error ? e.stack : e))
+      ...args.map(e => e instanceof Error ? e.stack : e))
   }
 
-  debug (...args) {
+  debug(...args) {
     console.log(this.timestamp, this._name + this.grey('[BUCKET - DEBUG]') + ' -', ...args)
   }
 
-  get codes () {
+  get codes() {
     return {
       reset: [0, 0],
 
@@ -70,12 +70,12 @@ class Terminal {
     }
   }
 
-  get timestamp () {
-    const time = new Date().toISOString()
-    return this._timestamps ? `[${this.grey(time.slice(time.indexOf('T') + 1).replace(/\..+/, ''))}]` : ''
+  get timestamp() {
+    const time = new Date().toLocaleTimeString("pt-br")
+    return this._timestamps ? `[${this.grey(time)}]` : ''
   }
 
-  supportsColours () {
+  supportsColours() {
     if (process.stdout && !process.stdout.isTTY) return false
     if (process.platfrom === 'win32') return true
     if ('COLORTERM' in process.env) return true
@@ -84,7 +84,7 @@ class Terminal {
     return false
   }
 
-  stripColour (str) {
+  stripColour(str) {
     return String(str).replace(/\x1B\[\d+m/g, '')
   }
 }
