@@ -1,0 +1,10 @@
+{
+  "production": {
+    "host": "localhost",
+    "dialect": "mariadb",
+    "logging": false,
+    "dialectOptions": {
+      "timezone": "Etc/GMT0"
+    }
+  }
+}

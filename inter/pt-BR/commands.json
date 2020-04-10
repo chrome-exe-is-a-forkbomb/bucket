@@ -1,0 +1,97 @@
+{
+    "reasonNotSet": "Motivo não especificado.",
+    "whois": {
+      "title": "Informações de usuário",
+      "gamming": "Jogando",
+      "nickname": "Apelido",
+      "entry_server": "Entrou no server há: ",
+      "day_entry": "``{{days}} dias``",
+      "create_account": "Conta criada há: ",
+      "roles": "cargos [{{length}}]",
+      "permissions": "Permissões no servidor [{{length}}]",
+      "clientStatus": "Usuário logado no:",
+      "status": {
+        "online": ":online: ativo",
+        "idle": ":idle: ausente",
+        "dnd": ":dnd: não incomodar",
+        "offline": ":offline: desconectado/invisivel"
+      }
+    },
+    "server": {
+      "id": "🔰 ID do servidor",
+      "owner": "Chefe do Servidor",
+      "locale": "⚽ Região",
+      "ownerID": "ID do Dono",
+      "days": "**```{{days}} dias```**",
+      "createDate": ":date: Servidor criado em: ",
+      "createTime": "⏰ Servidor criado há",
+      "channelVoice": "🎤 Canais de Voz:",
+      "channelVoiceSize":"```{{channels}} canal(is) de voz```",
+     "channelText": "📋 Canais de texto:",
+      "channelTextSize": "```{{channels}} canal(is) de texto```",
+      "botAddDate": "📥 Bot adicionado em",
+      "botAddTime": "📥 Bot adicionado há",
+      "members": "🎎 Total de Membros",
+      "membersSize": "```{{members}} membros no servidor```",
+      "roles": "📌 Total de Cargos:",
+      "rolesSize": "```{{roles}} cargos```",
+      "peoples": "🏣 Total de Pessoas:",
+      "peoplesSize": "```👥 {{peoples}} usuários```",
+      "bots": "👾 Total de Bots:"
+    },
+    "avatar":{
+      "download_avatar": "[Baixe aqui!]({{url}})"
+    },
+    "locale": {
+      "set_lang": "<@{{user}}> Caraca, como é bom falar minha língua natal, véi. :flag_br:  ",
+      "language_list": "<@{{user}}> Estes são os locais disponíveis até o momento! ```{{locales}}``` Para ajudar na minha tradução e internacionalização, acesse minha página no GitHub!"
+    },
+    "prefix": {
+      "set_prefix": "Prefixo atualizado, seu novo prefixo é: ` {{prefix}} ` hehe! < 3",
+      "error_prefix": "Something goes whrong when I tried to change your prefix, darling... Try again later!",
+      "same_prefix": "that prefix was already set, darling. :("
+    },
+    "welcome": {
+      "configure": {
+        "edit": "Editar mensagem de boas-vindas",
+        "delete": "Apagar cofigurações (isso é perigoso!)",
+        "edit_prompt": {
+          "typerequest": "<@{{user}}> Digite sua nova mensagem de boas-vindas.",
+          "lessThan": "tá de zueira que vai usar uma mensagem nessa né!? O mínimo são **15** caracteres, chefe!",
+          "higherThan": "que mensagem grande... Manera nisso aí, chapa! O máximo é **1500** caracteres. --''",
+          "success": "gotcha! Sua mensagem tá editadinha e pronta pra usar. :D"
+        },
+        "delete_prompt": {
+          "success": "mensagem deletada com sucesso! Espero que não se arrependa :T"
+        }
+      },
+      "set": "Configurar módulo",
+      "configTitle": "Ooi! Bem-vindo ao menu de configuração de boas-vindas :D",
+      "get": "Mostrar mensagem configurada",
+      "rejectMessageRequest": "Cara, você tem que criar uma mensagem para poder vê-la! Eu hein! >:C",
+      "enable": "Ativar módulo",
+      "disable": "Desativar módulo"
+    },
+    "purge": {
+      "success": "faxina terminada, chefia."
+    },
+    "kick": {
+      "success": "kickado com sucesso, chefia.",
+      "botLowRole": "calma lá, eu não consigo kickar gente com cargo mais alto que eu.",
+      "equalOrHigher": "você não pode kickar alguém com um cargo maior ou igual ao seu. >:C"
+    },
+    "ban": {
+      "success": "banido com sucesso, chefia.",
+      "botLowRole": "calma lá, eu não consigo banir gente com cargo mais alto que eu.",
+      "equalOrHigher": "você não pode banir alguém com um cargo maior ou igual ao seu. >:C"
+    },
+    "autorole": {
+      "deleteRejection": "não posso deletar algo que não existe, só sua inteligência.",
+      "deletedSuccess": "autorole deletada com sucesso. =D",
+      "myselfLowRole": "meu maior cargo está abaixo do cargo selecionado, não posso adiciona-lo à ninguém. =(",
+      "managedError": "esse cargo não pode ser adicionado, ele é trancado pô.",
+      "success": "módulo configurado com sucess, agora é só esperar alguém entrar. =)",
+      "missingRole": "você esqueceu de mencionar o cargo, bonitão. Ex.: `+autorole --create @cargo`",
+      "getInfo": "cargo configurado: {{role}}"
+    }
+}
