@@ -2,18 +2,19 @@ module.exports = {
   name: 'parseMessage',
   priority: 1,
   process: async container => {
-    const { msg, client, commands } = container;
+    const { msg, client, commands, plugins } = container;
     if (!msg.channel.guild) return
-    const db = client.plugins.get("store");
+    const db = plugins.get("store");
     const store = await db.fetchGuild(msg.channel.guild.id);
 
     const prefix = store.settings.prefix;
     const language = store.settings.locale;
 
     if (msg.content.startsWith(`<@!${client.user.id}>`)) {
-      const i18n = client.plugins.get("i18n")
-      const trad = i18n.parse("{{botMention}}", "commands", language, { prefix })
-      return msg.channel.createMessage(trad)
+      const i18n = plugins.get("i18n")
+      const tradution = i18n.parse("{{botMention}}", "commands", language, { prefix })
+      
+      return msg.channel.createMessage(tradution)
     }
 
     else if (!msg.content.startsWith(prefix)) return;

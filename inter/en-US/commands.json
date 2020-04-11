@@ -1,78 +1,78 @@
 {
-    "reasonNotSet": "Reason not specified!",
-    "whois": {
-        "title": "User Information",
-        "gamming": "Game Playing",
-        "entry_server": "Joined Server At",
-        "nickname": "nickname",
-        "day_entry": "***```prolog\n{{days}} days```",
-        "create_account": "Created Discord Account",
-        "roles": "Roles [{{length}}]",
-        "permissions": "Permissions in server [{{length}}]",
-        "clientStatus":"user logged in:",
-        "status": {
-            "online": ":online: online",
-            "idle": ":idle: absent",
-            "dnd": ":dnd: do not disturb",
-            "offline": ":offline: disconnected or invisible"
-        }
-    },
-    "server": {
-        "id": "🔰 Server Id",
-        "owner": "Server Owner",
-        "locale": "⚽ Locale",
-        "ownerID": "Owner ID",
-        "days": "**```{{days}} days```**",
-        "createDate": ":date: Create Server at: ",
-        "createTime": "⏰ Create Server ",
-        "channelVoice": "🎤 Voice Channels",
-        "channelVoiceSize": "```{{channels}} channel voices```",
-        "channelText": "📋 Text Channel",
-        "channelTextSize": "```{{channels}} channel texts```",
-        "botAddDate": "📥 Bot add at",
-        "botAddTime": "📥 Bot add",
-        "members": "🎎 Total Members",
-        "membersSize": "```{{members}} members on the server```",
-        "roles": "📌 Total roles:",
-        "rolesSize": "```{{roles}} roles```",
-        "peoples": "🏣 Total peoples:",
-        "peoplesSize": "```👥 {{peoples}} users```",
-        "bots": "👾 Total Bots:"
-      },
-      "avatar": {
-        "title_avatar": "{{user}}'s Avatar",
-        "download_avatar": "[Download here!]({{url}})"
-      },
-      "prefix": {
-          "set_prefix": "Easy and sweet like eat a candy! Your prefix is ` {{prefix}} ` now, chu! < 3",
-          "error_prefix": "Something goes whrong when I tried to change your prefix, darling... Try again later!",
-          "same_prefix": "that prefix was already set, darling. :("
-      },
-      "locale": {
-        "language_list": "<@{{user}}> These are the locales available at the moment! ```{{locales}}```",
-        "set_lang": "<@{{user}}> Okay, sir. I'll speak english for now! :flag_us:"
-      },
-      "welcome": {
-        "configure": {
-          "edit": "Create/edit your welcome message.",
-          "delete": "Delete welcome settings (it's dangerous!)",
-          "edit_prompt": {
-            "typerequest": "<@{{user}}> Type your new welcome message.",
-            "lessThan": "How you could make someone feel in home with this!? The minimum is at least **15** caracteres, bro!",
-            "higherThan": "What a big message, it's a book!? The max length is**1500** characters. --''",
-            "success": "Gotcha! Your welcome message is ready. =D"
-            },
-            "set": "Setup module",
-            "configTitle": "Heey! Bem-vindo ao menu de configuração de boas-vindas :D",
-            "get": "Mostrar mensagem configurada",
-            "rejectMessageRequest": "Cara, você tem que criar uma mensagem para poder vê-la! Eu hein! >:C",
-            "enable": "Enable module",
-            "disable": "Disable module"
-        }
-     },
-     "purge": {
-       "success": "Swept done, bossy. C=",
-      "filterSuccess": "Done, but, for the next time, use a vacuum cleaner! Humpf"
+  "reasonNotSet": "Reason not specified!",
+  "whois": {
+    "title": "User Information",
+    "gamming": "Game Playing",
+    "entry_server": "Joined Server At",
+    "nickname": "nickname",
+    "day_entry": "***```prolog\n{{days}} days```",
+    "create_account": "Created Discord Account",
+    "roles": "Roles [{{length}}]",
+    "permissions": "Permissions in server [{{length}}]",
+    "clientStatus": "user logged in:",
+    "status": {
+      "online": ":online: online",
+      "idle": ":idle: absent",
+      "dnd": ":dnd: do not disturb",
+      "offline": ":offline: disconnected or invisible"
     }
+  },
+  "server": {
+    "id": "🔰 Server Id",
+    "owner": "Server Owner",
+    "locale": "⚽ Locale",
+    "ownerID": "Owner ID",
+    "days": "**```{{days}} days```**",
+    "createDate": ":date: Create Server at: ",
+    "createTime": "⏰ Create Server ",
+    "channelVoice": "🎤 Voice Channels",
+    "channelVoiceSize": "```{{channels}} channel voices```",
+    "channelText": "📋 Text Channel",
+    "channelTextSize": "```{{channels}} channel texts```",
+    "botAddDate": "📥 Bot add at",
+    "botAddTime": "📥 Bot add",
+    "members": "🎎 Total Members",
+    "membersSize": "```{{members}} members on the server```",
+    "roles": "📌 Total roles:",
+    "rolesSize": "```{{roles}} roles```",
+    "peoples": "🏣 Total peoples:",
+    "peoplesSize": "```👥 {{peoples}} users```",
+    "bots": "👾 Total Bots:"
+  },
+  "avatar": {
+    "title_avatar": "{{user}}'s Avatar",
+    "download_avatar": "[Download here!]({{url}})"
+  },
+  "prefix": {
+    "set_prefix": "Easy and sweet like eat a candy! Your prefix is ` {{prefix}} ` now, chu! < 3",
+    "error_prefix": "Something goes whrong when I tried to change your prefix, darling... Try again later!",
+    "same_prefix": "that prefix was already set, darling. :("
+  },
+  "locale": {
+    "language_list": "<@{{user}}> These are the locales available at the moment! ```{{locales}}```",
+    "set_lang": "<@{{user}}> Okay, sir. I'll speak english for now! :flag_us:"
+  },
+  "welcome": {
+    "configure": {
+      "edit": "Create/edit your welcome message.",
+      "delete": "Delete welcome settings (it's dangerous!)",
+      "edit_prompt": {
+        "typerequest": "<@{{user}}> Type your new welcome message.",
+        "lessThan": "How you could make someone feel in home with this!? The minimum is at least **15** caracteres, bro!",
+        "higherThan": "What a big message, it's a book!? The max length is**1500** characters. --''",
+        "success": "Gotcha! Your welcome message is ready. =D"
+      },
+      "set": "Setup module",
+      "configTitle": "Heey! Bem-vindo ao menu de configuração de boas-vindas :D",
+      "get": "Mostrar mensagem configurada",
+      "rejectMessageRequest": "Cara, você tem que criar uma mensagem para poder vê-la! Eu hein! >:C",
+      "enable": "Enable module",
+      "disable": "Disable module"
+    }
+  },
+  "purge": {
+    "success": "Swept done, bossy. C=",
+    "filterSuccess": "Done, but, for the next time, use a vacuum cleaner! Humpf"
+  },
+  "botMention": "> Hi :) If you want to know, my prefix configured here is ``{{prefix}}``"
 }
-

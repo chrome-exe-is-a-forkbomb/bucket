@@ -93,5 +93,6 @@
       "success": "módulo configurado com sucess, agora é só esperar alguém entrar. =)",
       "missingRole": "você esqueceu de mencionar o cargo, bonitão. Ex.: `+autorole --create @cargo`",
       "getInfo": "cargo configurado: {{role}}"
-    }
+    },
+    "botMention": "> Oi meu lindo :) Se quiser saber, meu prefixo configurado aqui é ``{{prefix}}``"
 }

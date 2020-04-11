@@ -20,6 +20,7 @@ const colours = {
   orange: '#c96941'
 }
 
+
 class Utils {
   constructor(client) {
     Utils._client = client

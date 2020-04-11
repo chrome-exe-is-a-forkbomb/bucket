@@ -5,13 +5,13 @@ try {
   Promise = global.Promise
 }
 
-const {join,isAbsolute} = require('path')
+const { join, isAbsolute } = require('path')
 const fs = require('fs')
 
 const { requireRecursive, isDir } = require('../util')
 
 class Bridge {
-  constructor (client) {
+  constructor(client) {
     this.tasks = []
     this.collectors = []
     this._cached = []
@@ -22,7 +22,7 @@ class Bridge {
     }
   }
 
-  register (middleware) {
+  register(middleware) {
     switch (typeof middleware) {
       case 'string': {
         const filepath = isAbsolute(middleware) ? middleware : join(process.cwd(), middleware)
@@ -51,7 +51,7 @@ class Bridge {
     }
   }
 
-  push (Middleware) {
+  push(Middleware) {
     const middleware = typeof Middleware === 'function' ? new Middleware(this) : Middleware
     this.tasks.push(middleware)
     this.tasks.sort((a, b) => a.priority - b.priority)
@@ -63,7 +63,7 @@ class Bridge {
     })
     return this
   }
-  collect (options = {}) {
+  collect(options = {}) {
     const { tries = 10, time = 60, matches = 10, channel, author, filter } = options
     const collector = {
       collected: [],
@@ -112,12 +112,12 @@ class Bridge {
     return collector
   }
 
-  destroy () {
+  destroy() {
     this.tasks = []
     this.collectors = []
   }
 
-  unregister (name) {
+  unregister(name) {
     if (name === true) {
       return this.tasks.splice(0)
     }
@@ -127,7 +127,7 @@ class Bridge {
     return middleware
   }
 
-  reload () {
+  reload() {
     for (const filepath of this._cached) {
       this._client.unload(filepath)
       this._cached.shift()
@@ -136,8 +136,8 @@ class Bridge {
     return this
   }
 
-  run () {
-    this._client.on('messageCreate', msg => {
+  run() {
+    this._client.on('messageCreate', async msg => {
       if (this._client.selfbot) {
         if (msg.author.id !== this._client.user.id) return
       } else {
@@ -161,10 +161,10 @@ class Bridge {
     })
   }
 
-  stop () {
+  stop() {
     this._client.removeAllListeners('messageCreate')
   }
-async handle (container) {
+  async handle(container) {
     const { msg } = container
     for (let collector of this.collectors) {
       const collected = collector.passMessage(msg)
