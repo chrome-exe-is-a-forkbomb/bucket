@@ -12,9 +12,7 @@ const client = new Bucket({
 	admins: ['694538239507300463', '268351613771448320']
 });
 
-const resolve = dir => join(dir);
-
-client.register("commands", resolve('./commands'), { groupedCommands: true });
+client.register("commands", join('./commands'), { groupedCommands: true });
 client.createPlugin('store', Store);
 
 client.run();
